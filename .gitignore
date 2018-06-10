@@ -2,6 +2,8 @@
 *.d
 .DS_Store
 .idea/
+*/*.pyc
+*.pyc
 # Compiled Object files
 *.slo
 *.lo
