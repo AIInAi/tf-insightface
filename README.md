@@ -2,7 +2,7 @@
 
 - [X] InsightFace inference example (production ready architecture)
 
-- [ ] Face recognition demo with insightface
+- [X] Face recognition demo with insightface (visualization missing, add later)
 
 - [ ] InsightFace training pipeline
 
@@ -19,6 +19,17 @@ It means:
 
 - [X] Later on, it's up to your purpose, if your purpose is face alignment/detection/distinguish, you need another classifier after this to do the job
 
+An example of this is as following, borrowed from [openface](https://cmusatyalab.github.io/openface/):
+
+![arch](https://raw.githubusercontent.com/cmusatyalab/openface/master/images/summary.jpg)
+
+
+# Demo Facial Recognition App
+
+Yes Yes Yes, I know your are lazy. So I made a demo app for you with following architecture:
+
+![sys - page 1](https://user-images.githubusercontent.com/8921629/41207031-e7e640fa-6cc2-11e8-8e36-029fe8d41885.png)
+
 
 # How to run it
 
@@ -26,9 +37,13 @@ It means:
 
 * Download pre-trained [frozen model](https://drive.google.com/open?id=1Iw2Ckz_BnHZUi78USlaFreZXylJj7hnP) and put it under [`pretrained` folder](https://github.com/AIInAi/tf-insightface/tree/master/pretrained)
 
-* Run demo: `python apps/example.py`
+* Run example: `python apps/example.py`
 
 * You shall be able to see terminal output a 512 element array representing face feature embedded
+
+* Run demo: `python apps/demo.py`
+
+* You sahll be able to see it output the architecture described above logs
 
 # References
 
