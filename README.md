@@ -1,2 +1,7 @@
-# tf-insightface
-A better tensorflow implementation of deepinsight, aiming at smoothly production ready for cross-platforms
+# Introduction
+
+- [X] InsightFace Inference Server
+
+- [ ] InsightFace Inference Demo
+
+- [ ] InsightFace training pipeline
