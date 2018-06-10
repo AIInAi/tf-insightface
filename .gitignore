@@ -4,6 +4,7 @@
 .idea/
 */*.pyc
 *.pyc
+*/*.pb
 # Compiled Object files
 *.slo
 *.lo
