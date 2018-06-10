@@ -3,6 +3,13 @@ import numpy as np
 from models import face_track_server, face_describer_server, face_db, camera_server
 from configs import configs
 
+'''
+The demo app utilize all servers in model folder with simple business scenario/logics:
+I have a camera product and I need to use it to find all visitors in my store who came here before.
+
+Main logics is in the process function, where you can further customize.
+'''
+
 
 class Demo(camera_server.CameraServer):
 
@@ -26,14 +33,13 @@ class Demo(camera_server.CameraServer):
         # self._viz_faces(_faces_loc, frame)
 
         # Step2. For each face, get the cropped face area, feeding it to face describer (insightface) to get 512-D Feature Embedding
-        _drop_out_rate = 0.1
         _face_descriptions = []
         _num_faces = len(_faces)
         if _num_faces == 0:
             return
         for _face in _faces:
             _face_resize = cv2.resize(_face, configs.face_describer_tensor_shape)
-            _data_feed = [np.expand_dims(_face_resize, axis=0), _drop_out_rate]
+            _data_feed = [np.expand_dims(_face_resize, axis=0), configs.face_describer_drop_out_rate]
             _face_description = self.face_describer.inference(_data_feed)[0][0]
             _face_descriptions.append(_face_description)
 
@@ -54,5 +60,8 @@ class Demo(camera_server.CameraServer):
         cv2.imshow('faces', frame)
         cv2.waitKey(1)
 
-demo = Demo(camera_address=0)
-demo.run()
+
+if __name__ == '__main__':
+    demo = Demo(camera_address=0)
+    demo.run()
+
